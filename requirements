@@ -1,0 +1,62 @@
+Users:
+
+User ID
+Name
+Email
+Password Hash
+Phone Number
+Address
+Date of Birth
+Security Questions (for password recovery)
+Two-Factor Authentication (2FA) details (optional)
+Wallets:
+
+Wallet ID
+User ID (foreign key to Users)
+Currency (e.g., USD, EUR, GBP)
+Balance
+Created At
+Updated At
+Transactions:
+
+Transaction ID
+Sender Wallet ID (foreign key to Wallets)
+Recipient Wallet ID (foreign key to Wallets)
+Amount
+Timestamp
+Status (e.g., pending, completed, failed)
+Description (optional)
+
+
+Database Table Structure:
+
+Users Table:
+user_id (Primary Key)
+name
+email
+password_hash
+phone_number
+address
+date_of_birth
+security_question_1
+security_answer_1
+security_question_2
+security_answer_2
+two_fa_secret (optional)
+
+Wallets Table:
+wallet_id (Primary Key)
+user_id (Foreign Key to Users)
+currency
+balance
+created_at
+updated_at
+
+Transactions Table:
+transaction_id (Primary Key)
+sender_wallet_id (Foreign Key to Wallets)
+recipient_wallet_id (Foreign Key to Wallets)
+amount
+timestamp
+status
+description
