@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DB_INITALIZATION_OPTIONS } from 'src/common/util/db.constants';
 
 @Module({
-    imports: [TypeOrmModule.forRoot(DB_INITALIZATION_OPTIONS)]
+    imports: [TypeOrmModule.forRoot({
+       
+      })]
 })
 export class DatabaseModule {}
