@@ -11,8 +11,8 @@ class EnvironmentVariables {
   @IsString({message: "Invalid Database Password" })
   DB_PASSWORD: string;
 
-  @IsString({message: "Invalid Database Port" })
-  DB_PORT: string;
+  @IsInt({message: "Invalid Database Port" })
+  DB_PORT: number;
 
   @IsString({message: "Invalid Database Host" })
   DB_HOST: string;
@@ -22,7 +22,6 @@ class EnvironmentVariables {
 }
 
 export const validate = (config: Record<string, unknown>) => {
-  
     // `plainToClass` to converts plain object into Class
     const validatedConfig = plainToClass(EnvironmentVariables, config, {
       enableImplicitConversion: true,

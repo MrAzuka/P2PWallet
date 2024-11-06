@@ -1,4 +1,13 @@
-import { DB_SOURCE_OPTIONS } from 'src/common/util/db.constants';
+import { dbHost, dbName, dbPassword, dbPort, dbUsername } from 'src/common/util/envconfig';
 import { DataSource } from 'typeorm';
 
-export default new DataSource(DB_SOURCE_OPTIONS);
+export default new DataSource({
+    type: "postgres",
+    username: dbUsername,
+    password: dbPassword,
+    port: dbPort,
+    host: dbHost,
+    database: dbName,
+    entities: ['dist/**/*.entity.js'],
+    migrations: ['dist/database/migrations/*.js'],
+  });
