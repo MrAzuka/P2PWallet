@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer"
 import { EntityDates } from "src/common/embeded/entity-dates"
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
@@ -7,10 +8,10 @@ export class User {
 @PrimaryGeneratedColumn("uuid")
 user_id: string
 
-@Column()
+@Column({nullable: true})
 first_name: string
 
-@Column()
+@Column({nullable: true})
 last_name: string
 
 @Column({unique: true})
@@ -19,16 +20,17 @@ username: string
 @Column({unique: true})
 email: string
 
+@Exclude()
 @Column()
 password: string
 
-@Column()
+@Column({nullable: true})
 phone_number: string
 
-@Column()
+@Column({nullable: true})
 address: string
 
-@Column({type: 'date'})
+@Column({type: 'date',nullable: true})
 date_of_birth: string
 
 @Column(() => EntityDates, {prefix: false})

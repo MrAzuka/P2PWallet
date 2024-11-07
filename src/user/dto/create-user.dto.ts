@@ -22,7 +22,7 @@ readonly email: string
 4. Minimum of 8 characters in total. */
 @IsString()
 @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.{8,})$/, { message: 'Password too weak' })
-readonly password: string
+password: string
 
 @IsStrOpt()
 readonly phone_number: string
