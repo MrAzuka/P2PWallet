@@ -6,6 +6,8 @@ import { User } from 'src/user/entities/user.entity';
 import { UserModule } from 'src/user/user.module';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
+import { LocalStrategy } from './strategies/local.strategy';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({imports:[
     UserModule,
@@ -15,5 +17,5 @@ import { AuthService } from './auth.service';
         signOptions: {expiresIn: "1h"}
     }),
     TypeOrmModule.forFeature([User])
-], controllers: [AuthController], providers: [AuthService]})
+], controllers: [AuthController], providers: [AuthService, LocalStrategy, JwtStrategy]})
 export class AuthModule {}
