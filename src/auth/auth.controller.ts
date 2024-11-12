@@ -26,6 +26,6 @@ export class AuthController {
     @Get('check')
     @UseGuards(JwtAuthGuard)
     check(@Req() req: Request){
-        return "Authenticated User"
+        return req.user
     }
 }
