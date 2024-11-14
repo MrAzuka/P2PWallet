@@ -4,6 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import { plainToClass } from 'class-transformer';
 
 @Injectable()
 export class UserService {
@@ -13,10 +14,10 @@ export class UserService {
   ){}
 
   async findOne(id: string) {
-    const user = await this.userRepository.findBy({user_id: id})
+    const user = await this.userRepository.findOne({ where: { user_id: id } })
 
     if (!user) {throw new NotFoundException("User not Found")}
-    return user
+    return plainToClass(User, user)
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {

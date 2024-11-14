@@ -12,8 +12,7 @@ export class WalletController {
 
   @Post()
   create(@Request() req: {user: JwtPayload} , @Body() createWalletDto: CreateWalletDto) {
-    
-    return this.walletService.create({user_id: req.user.user_id, ...createWalletDto});
+    return this.walletService.create(createWalletDto, req.user.user_id);
   }
 
   
