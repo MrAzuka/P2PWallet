@@ -4,7 +4,7 @@ dotenv.config({
   path: '${__dirname}/../.env'
 });
 
-// export const port = Number(process.env.PORT);
+export const port = Number(process.env.PORT);
 export const dbPort = Number(process.env.DB_PORT);
 export const dbUsername = String(process.env.DB_USERNAME);
 export const dbName = String(process.env.DB_NAME);

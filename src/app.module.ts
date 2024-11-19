@@ -6,9 +6,8 @@ import { ConfigModule } from '@nestjs/config';
 import { validate } from './common/util/environment.validation';
 import { AuthModule } from './auth/auth.module';
 import { WalletModule } from './wallet/wallet.module';
-import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
-  imports: [DatabaseModule, CommonModule, UserModule, ConfigModule.forRoot({ isGlobal: true, validate }), AuthModule, WalletModule, TransactionModule]
+  imports: [DatabaseModule, CommonModule, UserModule, ConfigModule.forRoot({ isGlobal: true, validate }), AuthModule, WalletModule]
 })
 export class AppModule { }

@@ -33,6 +33,10 @@ address: string
 @Column({type: 'date',nullable: true})
 date_of_birth: string
 
+@Exclude()
+@Column()
+pin: string
+
 @Column(() => EntityDates, {prefix: false})
 registryDates: EntityDates
 

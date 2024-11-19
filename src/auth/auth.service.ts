@@ -18,6 +18,7 @@ export class AuthService {
 
   async register(createUserDto: CreateUserDto) {
     createUserDto.password = await Hash.make(createUserDto.password);
+    createUserDto.pin = await Hash.make(createUserDto.pin)
 
     const user = this.userRepository.create(createUserDto);
 

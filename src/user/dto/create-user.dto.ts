@@ -34,4 +34,7 @@ readonly address: string
 @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'dateOfBirth must be in the format YYYY-MM-DD' })
 readonly date_of_birth: string
 
+@IsString()
+@Matches(/^\d{4}$/, { message: 'PIN must be exactly 4 digits' })
+pin: string;
 }

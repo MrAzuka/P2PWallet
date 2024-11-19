@@ -11,5 +11,6 @@ import { UserModule } from 'src/user/user.module';
   imports: [TypeOrmModule.forFeature([Wallet]), AuthModule, UserModule],
   controllers: [WalletController],
   providers: [WalletService],
+  exports: [WalletService]
 })
 export class WalletModule {}
