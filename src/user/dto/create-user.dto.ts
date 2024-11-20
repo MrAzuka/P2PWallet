@@ -21,7 +21,8 @@ readonly email: string
 3. At least one special character (e.g., !@#$%^&*()).
 4. Minimum of 8 characters in total. */
 @IsString()
-@Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.{8,})$/, { message: 'Password too weak' })
+@Matches(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/, { message: 'Password too weak' })
+
 password: string
 
 @IsStrOpt()
